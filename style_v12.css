@@ -308,8 +308,7 @@ body {
    ============================================= */
 .page-menu {
   align-items: flex-start;
-  padding-top: clamp(40px, 5vh, 80px);
-  padding-bottom: clamp(40px, 5vh, 80px);
+  padding-top: clamp(50px, 7vh, 90px);
 }
 
 /* ---- HEADER ---- */
@@ -752,7 +751,8 @@ body {
     padding: 0 clamp(14px, 5vw, 60px);
     width: 100%;
     max-width: 500px;
-    margin: clamp(40px, 8vh, 80px) auto 0; /* Shifted further down */
+    margin: clamp(40px, 8vh, 80px) auto 0;
+    /* Shifted further down */
     flex: none;
     align-content: start;
   }
@@ -1213,7 +1213,7 @@ button:focus-visible {
   /* Generous spacing between works */
 }
 
-.column-title + .work-item {
+.column-title+.work-item {
   margin-top: calc(-1 * clamp(30px, 5vh, 60px));
 }
 
@@ -1867,12 +1867,12 @@ button:focus-visible {
   overflow: hidden;
 }
 
-.becam-container > .becam-img-card:first-of-type {
+.becam-container>.becam-img-card:first-of-type {
   height: auto;
   max-height: clamp(200px, 25vw, 400px);
 }
 
-.becam-container > .becam-img-card:first-of-type .becam-img {
+.becam-container>.becam-img-card:first-of-type .becam-img {
   width: 100%;
   height: auto;
   object-fit: contain;
