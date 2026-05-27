@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - Nhat Phan Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Caveat:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style_v12.css?v=16" />
+  <style>
+    .horizontal-scroll-container {
+      width: 100%;
+      overflow-x: auto;
+      padding: 40px 0;
+      background-color: #ffffff;
+      -webkit-overflow-scrolling: touch;
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+
+    .horizontal-scroll-container::-webkit-scrollbar {
+      display: none;
+      /* Hide scrollbar for Chrome, Safari and Opera */
+    }
+
+    .scroll-wrapper {
+      display: flex;
+      gap: 2px;
+      padding: 0 clamp(20px, 6vw, 120px);
+      width: max-content;
+    }
+
+    @media (max-width: 768px) {
+      .becam-footer-nav {
+        justify-content: center !important;
+        gap: 40px;
+      }
+
+      .becam-footer-nav .home-btn {
+        transform: translateX(0) !important;
+      }
+
+      .becam-footer-nav .next-btn {
+        display: none !important;
+      }
+    }
+
+    .scroll-img {
+      height: clamp(500px, 70vh, 900px);
+      width: auto;
+      border-radius: 0;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body class="subpage-body gallery-body">
+  <!-- Dynamic Shared Header injected by script.js -->
+  <div id="global-header-container"></div>
+
+  <main class="becam-content">
+    <div class="becam-container">
+
+      <!-- Top Image: Banner -->
+      <div class="becam-img-card">
+        <img src="image/gallery/banner.png" alt="Gallery Banner" class="becam-img" />
+      </div>
+
+      <!-- Section Title Image -->
+        <div class="swipe-label" style="margin-top: 40px; margin-bottom: 30px;">Swipe to see &gt;&gt;</div>
+      <div
+        style="max-width: 1380px; margin: 100px auto 40px; padding: 0 var(--becam-side-padding); box-sizing: border-box; width: 100%; text-align: center;">
+       
+        <img src="image/cake_by_vpbank.svg" alt="Cake by VPBank"
+          style="max-width: 800px; width: 100%; height: auto;" />
+        <p
+          style="color: #271D7A; font-family: var(--font-body); font-size: clamp(28px, 1.5vw, 28px); font-weight: 500; margin-top: 80px;">
+          Social post</p>
+      </div>
+
+      <!-- Horizontal Scroll Section -->
+      <div class="horizontal-scroll-container">
+        <div class="scroll-wrapper">
+          <img src="image/gallery/img_cake_by_vpbank.png" alt="Cake by VPBank Gallery" class="scroll-img" style="height: clamp(580px, 75vh, 950px);" />
+        </div>
+      </div>
+      <!-- Results Section -->
+      <section
+        style="display: flex; flex-direction: column; align-items: center; width: 100%; padding: 60px 0 0 0; box-sizing: border-box;">
+        <div class="becam-artwork-wrapper">
+          <h2
+            style="color: #FF00A8; font-family: var(--font-body); font-size: clamp(28px, 3vw, 40px); font-weight: 700; margin-bottom: 30px; text-align: center; width: 100%;">
+            Results</h2>
+        </div>
+
+        <!-- Full Width Pink Bar -->
+        <div
+          style="background-color: #FFE6F7; width: 100%; padding: 25px 0; display: flex; justify-content: center; box-sizing: border-box;">
+          <div class="becam-artwork-wrapper"
+            style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; width: 100%;">
+            <div
+              style="color: #FF00A8; font-family: var(--font-body); font-size: clamp(16px, 1.5vw, 22px); font-weight: 700; flex: 1; text-align: center; min-width: 200px;">
+              ~3K Organic Reach per Facebook post</div>
+            <div
+              style="color: #FF00A8; font-family: var(--font-body); font-size: clamp(16px, 1.5vw, 22px); font-weight: 700; flex: 1; text-align: center; min-width: 200px;">
+              ~2K Total Interactions</div>
+          </div>
+        </div>
+      </section>
+      <!-- Artwork Section: The Beat Card -->
+      <section
+        style="display: flex; justify-content: center; width: 100%; padding: 0; margin-top: 60px; box-sizing: border-box;">
+        <div class="becam-artwork-wrapper">
+          <img src="image/debeat_card/THEBEATCARD.png" alt="The Beat Card" class="becam-artwork-img"
+            style="max-width: 600px; width: 100%; height: auto; display: block; margin: 0 auto;" />
+          <h3
+            style="color: #FF00A8; font-family: var(--font-body); font-size: clamp(24px, 2.5vw, 32px); font-weight: 700; text-align: center; margin-top: 30px; width: 100%;">
+            Collection card</h3>
+        </div>
+      </section>
+
+      <!-- Horizontal Scroll Section (from debeat) -->
+      <div class="horizontal-scroll-container" style="padding: 40px 0;">
+        <div class="scroll-wrapper" style="gap: 30px;">
+          <img src="image/debeat_card/scroll_1.png" alt="Scroll 1" class="scroll-img"
+            style="height: clamp(400px, 55vh, 800px); border-radius: 20px;" />
+          <img src="image/debeat_card/scroll_2.png" alt="Scroll 2" class="scroll-img"
+            style="height: clamp(400px, 55vh, 800px); border-radius: 20px;" />
+          <img src="image/debeat_card/scroll_3.png" alt="Scroll 3" class="scroll-img"
+            style="height: clamp(400px, 55vh, 800px); border-radius: 20px;" />
+          <img src="image/debeat_card/scroll_4.png" alt="Scroll 4" class="scroll-img"
+            style="height: clamp(400px, 55vh, 800px); border-radius: 20px;" />
+          <img src="image/debeat_card/scroll_5.png" alt="Scroll 5" class="scroll-img"
+            style="height: clamp(400px, 55vh, 800px); border-radius: 20px;" />
+          <img src="image/debeat_card/scroll_6.png" alt="Scroll 6" class="scroll-img"
+            style="height: clamp(400px, 55vh, 800px); border-radius: 20px;" />
+          <img src="image/debeat_card/scroll_7.png" alt="Scroll 7" class="scroll-img"
+            style="height: clamp(400px, 55vh, 800px); border-radius: 20px;" />
+          <img src="image/debeat_card/scroll_8.png" alt="Scroll 8" class="scroll-img"
+            style="height: clamp(400px, 55vh, 800px); border-radius: 20px;" />
+        </div>
+      </div>
+      <!-- Heading: Mockup card -->
+      <section style="display: flex; justify-content: center; width: 100%; padding: 40px 0; box-sizing: border-box;">
+        <div class="becam-artwork-wrapper">
+          <h3
+            style="color: #00C853; font-family: var(--font-body); font-size: clamp(24px, 2.5vw, 32px); font-weight: 700; text-align: center; width: 100%;">
+            Mockup card</h3>
+        </div>
+      </section>
+
+      <!-- Horizontal Scroll Section: Mockup Card -->
+      <div class="horizontal-scroll-container" style="padding: 40px 0;">
+        <div class="scroll-wrapper">
+          <img src="image/gallery/mockup_card.png" alt="Mockup Card" class="scroll-img" style="height: clamp(650px, 80vh, 1000px);" />
+        </div>
+      </div>
+
+      <!-- Heading: OOH -->
+      <section style="display: flex; justify-content: center; width: 100%; padding: 40px 0; box-sizing: border-box;">
+        <div class="becam-artwork-wrapper">
+          <h3
+            style="color: #FF00A8; font-family: var(--font-body); font-size: clamp(24px, 2.5vw, 32px); font-weight: 700; text-align: center; width: 100%;">
+            OOH</h3>
+        </div>
+      </section>
+
+      <!-- Horizontal Scroll Section: OOH -->
+      <div class="horizontal-scroll-container" style="padding: 40px 0;">
+        <div class="scroll-wrapper">
+          <img src="image/gallery/ohh.png" alt="OOH" class="scroll-img" style="height: clamp(650px, 80vh, 1000px);" />
+        </div>
+      </div>
+
+      <!-- Disclaimer Section -->
+      <section
+        style="display: flex; flex-direction: column; align-items: center; width: 100%; padding: 40px 0 0 0; box-sizing: border-box;">
+        <div
+          style="background-color: #2ED47A; width: 100%; padding: 25px 0; display: flex; justify-content: center; box-sizing: border-box;">
+          <div class="becam-artwork-wrapper" style="text-align: center; width: 100%;">
+            <p
+              style="color: #FF00A8; font-family: var(--font-body); font-size: clamp(16px, 1.5vw, 22px); font-weight: 700; margin: 0;">
+              Personal project for non-profit purposes</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Artwork Section: Cham Cake Ti -->
+      <section
+        style="display: flex; justify-content: center; width: 100%; padding: 140px 0 80px 0; box-sizing: border-box;">
+        <div class="becam-artwork-wrapper">
+          <img src="image/cham_cake/cham_cake_ti.png" alt="Cham Cake" class="becam-artwork-img"
+            style="max-width: 600px; width: 100%; height: auto; display: block; margin: 0 auto;" />
+        </div>
+      </section>
+
+      <!-- Horizontal Scroll Section: Cham Cake Gallery -->
+      <div class="horizontal-scroll-container" style="padding: 0 0 60px 0;">
+        <div class="scroll-wrapper">
+          <img src="image/gallery/cham_cake_ti.png" alt="Cham Cake Gallery" class="scroll-img" style="height: clamp(580px, 75vh, 950px);" />
+        </div>
+      </div>
+
+      <!-- Results Section: Cham Cake -->
+      <section
+        style="display: flex; flex-direction: column; align-items: center; width: 100%; padding: 40px 0 0 0; box-sizing: border-box;">
+        <div class="becam-artwork-wrapper">
+          <h2
+            style="color: #FF00A8; font-family: var(--font-body); font-size: clamp(28px, 3vw, 40px); font-weight: 700; margin-bottom: 30px; text-align: center; width: 100%;">
+            Results</h2>
+        </div>
+
+        <!-- Full Width Stats Bar -->
+        <div
+          style="background-color: #E2DFEB; width: 100%; padding: 25px 0; display: flex; justify-content: center; box-sizing: border-box;">
+          <div class="becam-artwork-wrapper"
+            style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; width: 100%;">
+            <div
+              style="color: #271D7A; font-family: var(--font-body); font-size: clamp(16px, 1.3vw, 20px); font-weight: 700; flex: 1; min-width: 150px; text-align: center;">
+              3M+ Views</div>
+            <div
+              style="color: #271D7A; font-family: var(--font-body); font-size: clamp(16px, 1.3vw, 20px); font-weight: 700; flex: 1; min-width: 150px; text-align: center;">
+              2M+ Reach</div>
+            <div
+              style="color: #271D7A; font-family: var(--font-body); font-size: clamp(16px, 1.3vw, 20px); font-weight: 700; flex: 2; min-width: 250px; text-align: center;">
+              ~21K Organic Reach per post</div>
+            <div
+              style="color: #271D7A; font-family: var(--font-body); font-size: clamp(16px, 1.3vw, 20px); font-weight: 700; flex: 1; min-width: 150px; text-align: center;">
+              8K+ Interactions</div>
+          </div>
+        </div>
+        <!-- Artwork Section: Trung Thu Day Du -->
+        <section style="display: flex; justify-content: center; width: 100%; padding: 130px 0 60px; box-sizing: border-box;">
+          <div class="becam-artwork-wrapper">
+            <img src="image/trungthu/trung_thu_day_du.png" alt="Trung Thu" class="becam-artwork-img"
+              style="max-width: 400px; width: 100%; height: auto; display: block; margin: 0 auto;" />
+          </div>
+        </section>
+
+        <!-- Horizontal Scroll Section: Result -->
+        <div class="horizontal-scroll-container" style="padding: 0 0 60px 0;">
+          <div class="scroll-wrapper">
+            <img src="image/gallery/result.png" alt="Result" class="scroll-img" style="height: clamp(580px, 75vh, 950px);" />
+          </div>
+        </div>
+
+        <!-- Results Section: Final Stats -->
+        <section
+          style="display: flex; flex-direction: column; align-items: center; width: 100%; padding: 0 0 120px 0; box-sizing: border-box;">
+          <div class="becam-artwork-wrapper">
+            <h2
+              style="color: #FF00A8; font-family: var(--font-body); font-size: clamp(28px, 3vw, 40px); font-weight: 700; margin-bottom: 30px; text-align: center; width: 100%;">
+              Results</h2>
+          </div>
+
+          <!-- Full Width Stats Bar -->
+          <div
+            style="background-color: #E2DFEB; width: 100%; padding: 25px 0; display: flex; justify-content: center; box-sizing: border-box;">
+            <div class="becam-artwork-wrapper"
+              style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; width: 100%;">
+              <div
+                style="color: #69528F; font-family: var(--font-body); font-size: clamp(16px, 1.3vw, 20px); font-weight: 700; flex: 1; min-width: 150px; text-align: center;">
+                ~2M View</div>
+              <div
+                style="color: #69528F; font-family: var(--font-body); font-size: clamp(16px, 1.3vw, 20px); font-weight: 700; flex: 1; min-width: 150px; text-align: center;">
+                ~1M Reach</div>
+              <div
+                style="color: #69528F; font-family: var(--font-body); font-size: clamp(16px, 1.3vw, 20px); font-weight: 700; flex: 1; min-width: 150px; text-align: center;">
+                ~10K Interactions</div>
+              <div
+                style="color: #69528F; font-family: var(--font-body); font-size: clamp(16px, 1.3vw, 20px); font-weight: 700; flex: 1; min-width: 150px; text-align: center;">
+                +2.4K Followers</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Artwork Section: cticket -->
+        <section
+          style="display: flex; justify-content: center; width: 100%; padding: 0 0 20px 0; box-sizing: border-box;">
+          <div class="becam-artwork-wrapper">
+            <img src="image/gallery/cticket.png" alt="cTicket" class="becam-artwork-img"
+              style="max-width: 400px; width: 100%; height: auto; display: block; margin: 0 auto;" />
+          </div>
+        </section>
+
+        <!-- Heading: Social Post -->
+        <section
+          style="display: flex; justify-content: center; width: 100%; padding: 20px 0 60px 0; box-sizing: border-box;">
+          <div class="becam-artwork-wrapper">
+            <h3
+              style="color: #271D7A; font-family: var(--font-body); font-size: clamp(24px, 2.5vw, 32px); font-weight: 700; text-align: center; width: 100%;">
+              Social post</h3>
+          </div>
+        </section>
+
+        <!-- Horizontal Scroll Section: img_sticket -->
+        <div class="horizontal-scroll-container" style="padding: 0 0 60px 0;">
+          <div class="scroll-wrapper">
+            <img src="image/gallery/img_sticket.png" alt="Sticket" class="scroll-img" style="height: clamp(580px, 75vh, 950px);" />
+          </div>
+        </div>
+
+        <!-- Results Section: Sticket -->
+        <section
+          style="display: flex; flex-direction: column; align-items: center; width: 100%; padding: 0 0 60px 0; box-sizing: border-box;">
+          <div class="becam-artwork-wrapper">
+            <h2
+              style="color: #1A1BE1; font-family: var(--font-body); font-size: clamp(28px, 3vw, 40px); font-weight: 700; margin-bottom: 30px; text-align: center; width: 100%;">
+              Results</h2>
+          </div>
+
+          <!-- Full Width Stats Bar -->
+          <div
+            style="background-color: #FFA5E7; width: 100%; padding: 25px 0; display: flex; justify-content: center; box-sizing: border-box;">
+            <div class="becam-artwork-wrapper"
+              style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; width: 100%;">
+              <div
+                style="color: #1A1BE1; font-family: var(--font-body); font-size: clamp(16px, 1.3vw, 20px); font-weight: 700; text-align: center; min-width: 250px;">
+                ~500 Organic Reach per Facebook post</div>
+              <div
+                style="color: #1A1BE1; font-family: var(--font-body); font-size: clamp(16px, 1.3vw, 20px); font-weight: 700; text-align: center; min-width: 200px;">
+                ~100 Total Interactions</div>
+            </div>
+          </div>
+          <!-- Artwork Section: Life Vietnam -->
+          <section
+            style="display: flex; justify-content: center; width: 100%; padding: 130px 0 20px 0; box-sizing: border-box;">
+            <div class="becam-artwork-wrapper">
+              <img src="image/life_vietnam.png" alt="Life Vietnam" class="becam-artwork-img"
+                style="max-width: 400px; width: 100%; height: auto; display: block; margin: 0 auto;" />
+            </div>
+          </section>
+
+          <!-- Artwork Section: Brand Mascot -->
+          <section
+            style="display: flex; justify-content: center; width: 100%; padding: 0 0 60px 0; box-sizing: border-box;">
+            <div class="becam-artwork-wrapper">
+              <img src="image/be_cam/brand_mascot.png" alt="Brand Mascot" class="becam-artwork-img"
+                style="max-width: 400px; width: 100%; height: auto; display: block; margin: 0 auto;" />
+            </div>
+          </section>
+
+          <!-- Horizontal Scroll Section: Hanwa -->
+          <div class="horizontal-scroll-container" style="padding: 0 0 60px 0;">
+            <div class="scroll-wrapper">
+              <img src="image/gallery/hanwa_img.png" alt="Hanwa" class="scroll-img" style="height: clamp(580px, 75vh, 950px);" />
+            </div>
+          </div>
+
+          <!-- Full Width Stats Bar: Orange -->
+          <section
+            style="display: flex; flex-direction: column; align-items: center; width: 100%; padding: 0 0 100px 0; box-sizing: border-box;">
+            <div
+              style="background-color: #FE7A22; width: 100%; padding: 25px 0; display: flex; justify-content: center; box-sizing: border-box;">
+              <div class="becam-artwork-wrapper"
+                style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; width: 100%;">
+                <div
+                  style="color: #FFFFFF; font-family: var(--font-body); font-size: clamp(16px, 1.3vw, 20px); font-weight: 700; text-align: center; min-width: 200px;">
+                  1M+ Total Organic Views</div>
+                <div
+                  style="color: #FFFFFF; font-family: var(--font-body); font-size: clamp(16px, 1.3vw, 20px); font-weight: 700; text-align: center; min-width: 200px;">
+                  800,000+ Total Organic Reach</div>
+                <div
+                  style="color: #FFFFFF; font-family: var(--font-body); font-size: clamp(16px, 1.3vw, 20px); font-weight: 700; text-align: center; min-width: 200px;">
+                  300K+ Total Interactions</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Artwork Section: Bao Hiem Cung De Thuong -->
+          <section
+            style="display: flex; justify-content: center; width: 100%; padding: 0 0 60px 0; box-sizing: border-box;">
+            <div class="becam-artwork-wrapper">
+              <img src="image/bao_hiem_cung_de_thuong/img.png" alt="Bao Hiem Cung De Thuong" class="becam-artwork-img"
+                style="max-width: 600px; width: 100%; height: auto; display: block; margin: 0 auto;" />
+            </div>
+          </section>
+
+          <!-- Horizontal Scroll Section: Bao Hiem Cung De Thuong Gallery -->
+          <div class="horizontal-scroll-container" style="padding: 0 0 60px 0;">
+            <div class="scroll-wrapper">
+              <img src="image/gallery/img_bao_hiem_cung_de_thuong.svg" alt="Bao Hiem Cung De Thuong Gallery"
+                class="scroll-img" style="height: clamp(580px, 75vh, 950px);" />
+            </div>
+          </div>
+
+          <!-- Disclaimer Section: Purple/Yellow -->
+          <section
+            style="display: flex; flex-direction: column; align-items: center; width: 100%; padding: 0 0 100px 0; box-sizing: border-box;">
+            <div
+              style="background-color: #38257C; width: 100%; padding: 25px 0; display: flex; justify-content: center; box-sizing: border-box;">
+              <div class="becam-artwork-wrapper" style="text-align: center; width: 100%;">
+                <p
+                  style="color: #FFDE34; font-family: var(--font-body); font-size: clamp(16px, 1.5vw, 22px); font-weight: 700; margin: 0;">
+                  Personal project for non-profit purposes</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Artwork Section: Loi Nhan Nhu -->
+          <section
+            style="display: flex; justify-content: center; width: 100%; padding: 0 0 60px 0; box-sizing: border-box;">
+            <div class="becam-artwork-wrapper">
+              <img src="image/loi_nhan_nhu/loi_nhan_nhu.png" alt="Loi Nhan Nhu" class="becam-artwork-img"
+                style="max-width: 600px; width: 100%; height: auto; display: block; margin: 0 auto;" />
+            </div>
+          </section>
+
+          <!-- Horizontal Scroll Section: Loi Nhan Nhu Gallery -->
+          <div class="horizontal-scroll-container" style="padding: 0 0 60px 0;">
+            <div class="scroll-wrapper">
+              <img src="image/gallery/loi_nhan_nhu.png" alt="Loi Nhan Nhu Gallery" class="scroll-img" style="height: clamp(580px, 75vh, 950px);" />
+            </div>
+          </div>
+
+          <!-- Disclaimer Section: Orange/White -->
+          <section
+            style="display: flex; flex-direction: column; align-items: center; width: 100%; padding: 0 0 60px 0; box-sizing: border-box;">
+            <div
+              style="background-color: #FE7A22; width: 100%; padding: 25px 0; display: flex; justify-content: center; box-sizing: border-box;">
+              <div class="becam-artwork-wrapper" style="text-align: center; width: 100%;">
+                <p
+                  style="color: #FFFFFF; font-family: var(--font-body); font-size: clamp(16px, 1.5vw, 22px); font-weight: 700; margin: 0;">
+                  Personal project for non-profit purposes</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Footer Navigation -->
+          <section class="becam-footer-nav" style="margin-top: 0px;">
+            <a href="work.html" class="nav-btn prev-btn">
+              <img src="image/prev.png" alt="Prev" />
+              <img src="image/otherworks.png" alt="Other Works" style="margin-left: 10px;" />
+            </a>
+            <a href="index.html" class="nav-btn home-btn" style="transform: translateX(-90px);">
+              <img src="image/home.png" alt="Home" />
+            </a>
+            <div class="nav-btn next-btn" style="visibility: hidden; pointer-events: none;"></div>
+          </section>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

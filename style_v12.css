@@ -1,0 +1,2207 @@
+/* =============================================
+   RESET & BASE
+   ============================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --pink: #FF0F80;
+  --pink-dark: #CC0066;
+  --yellow: #FFE533;
+  --black: #0D0D0D;
+  --white: #FAFAF7;
+  --paper: #F3EFE6;
+  --ink: #1A1A1A;
+  --font-display: 'Bebas Neue', 'Anton', sans-serif;
+  --font-hand: 'Caveat', cursive;
+  --font-body: 'Inter', sans-serif;
+  --page-h: 100svh;
+  --becam-side-padding: clamp(20px, 6vw, 60px);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  background: #ffffff;
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* =============================================
+   SHARED PAGE BASE
+   ============================================= */
+.page {
+  position: relative;
+  width: 100%;
+  min-height: var(--page-h);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+/* Full-cover background image */
+.bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(243, 239, 230, 0.15);
+  z-index: 1;
+}
+
+/* =============================================
+   PAGE 1 – HERO
+   ============================================= */
+.page-hero {
+  align-items: center;
+  justify-content: flex-start;
+  min-height: var(--page-h);
+  height: var(--page-h);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* ---- NAV TAGS TICKER ---- */
+.hero-nav {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  padding: clamp(32px, 4.5vw, 54px) 0 0;
+}
+
+.ticker-content {
+  display: flex;
+  white-space: nowrap;
+  animation: ticker 20s linear infinite;
+  width: max-content;
+}
+
+.nav-tag {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: clamp(9px, 1.1vw, 14px);
+  letter-spacing: 0.18em;
+  color: #5E0023;
+  margin-right: clamp(60px, 10vw, 150px);
+  /* Large space between tags */
+  display: inline-block;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-25%);
+  }
+}
+
+.nav-tag {
+  cursor: default;
+  transition: color 0.25s;
+}
+
+.nav-tag:hover {
+  color: var(--pink);
+}
+
+/* ---- TITLE ---- */
+.hero-title-wrapper {
+  position: relative;
+  z-index: 5;
+  /* behind person-wrapper (z-index 8) */
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  padding: 0 clamp(20px, 5vw, 60px);
+  margin-top: clamp(-10px, -1vw, -20px);
+  pointer-events: none;
+}
+
+.hero-title-img {
+  width: 100%;
+  max-width: 1280px;
+  /* keep high-end limit matching the grid */
+  height: auto;
+  display: block;
+  opacity: 0;
+  animation: titleImageReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.06));
+}
+
+@keyframes titleImageReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ---- SUB LABELS (Below Portfolio Left/Right) ---- */
+.hero-sublabels {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 clamp(20px, 5vw, 60px);
+  margin-top: clamp(-130px, -9vw, -70px);
+  /* Shifted up by ~100px to overlay portfolio title image */
+  pointer-events: none;
+}
+
+.sublabel {
+  font-family: var(--font-display);
+  font-size: clamp(11px, 1.3vw, 18px);
+  letter-spacing: 0.06em;
+  color: #F96B3E;
+  /* Bright coral-orange as requested */
+  opacity: 0;
+  animation: fadeInUp 0.6s ease 1.1s forwards;
+  white-space: nowrap;
+}
+
+.sublabel em {
+  font-style: italic;
+}
+
+/* ---- PERSON IMAGE ---- */
+.person-wrapper {
+  position: absolute;
+  bottom: 0px;
+  /* Moved up a bit */
+  /* Sat voi day cua page-hero/bg_big */
+  top: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 8;
+  width: clamp(240px, 32vw, 480px);
+  /* Phong to de de len anh portfolio! */
+  pointer-events: none;
+  opacity: 0;
+  animation: personRise 1s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
+}
+
+.person-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.18));
+}
+
+/* head.png – brain/gear illustration overlaid above the face, flush on top */
+.head-img {
+  position: absolute;
+  /* bottom of brain aligns flush with top of person's forehead slice */
+  bottom: 91.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  height: auto;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.12));
+  pointer-events: none;
+  animation: none;
+}
+
+
+/* ---- SPEECH BUBBLE (hero) ---- */
+.speech-bubble-img-wrapper {
+  position: absolute;
+  z-index: 15;
+  width: clamp(150px, 20vw, 270px);
+  opacity: 0;
+  animation: bubblePop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 1.4s forwards;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Left-side bubble positioning */
+.speech-left {
+  left: clamp(60px, 15vw, 240px);
+  bottom: clamp(0px, 4vw, 80px);
+  /* Reverted to align with the bottom-seated face */
+  top: auto;
+}
+
+.speech-bubble-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(3px 3px 0px rgba(0, 0, 0, 0.1));
+}
+
+/* ---- SCROLL CUE ---- */
+.scroll-cue {
+  position: absolute;
+  bottom: clamp(14px, 2.5vh, 28px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  background: var(--pink);
+  border: none;
+  border-radius: 50%;
+  width: clamp(36px, 4vw, 52px);
+  height: clamp(36px, 4vw, 52px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeIn 0.5s ease 2s forwards;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 4px 18px rgba(255, 15, 128, 0.35);
+}
+
+.scroll-cue:hover {
+  background: var(--pink-dark);
+  transform: translateX(-50%) scale(1.1);
+}
+
+.scroll-arrow {
+  color: #fff;
+  font-size: clamp(16px, 2vw, 24px);
+  animation: bounce 1.4s ease infinite 2.5s;
+  line-height: 1;
+}
+
+/* =============================================
+   PAGE 2 – MENU
+   ============================================= */
+.page-menu {
+  align-items: flex-start;
+}
+
+/* ---- HEADER ---- */
+.menu-header {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(20px, 4vw, 50px);
+}
+
+.menu-logo {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1.2vw, 16px);
+  opacity: 0;
+  animation: fadeInDown 0.6s ease 0.1s forwards;
+}
+
+.logo-img {
+  height: clamp(65px, 8vw, 100px);
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.logo-name {
+  font-family: var(--font-display);
+  font-size: clamp(14px, 1.8vw, 22px);
+  letter-spacing: 0.12em;
+  color: var(--ink);
+}
+
+.logo-sub {
+  font-family: var(--font-body);
+  font-size: clamp(8px, 0.9vw, 11px);
+  letter-spacing: 0.18em;
+  color: #555;
+  text-transform: uppercase;
+}
+
+.menu-social {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1.2vw, 16px);
+  opacity: 0;
+  animation: fadeInDown 0.6s ease 0.2s forwards;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(36px, 4.2vw, 54px);
+  height: clamp(36px, 4.2vw, 54px);
+  border: none;
+  background: transparent;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.social-btn:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.social-btn img {
+  width: 65%;
+  height: 65%;
+  object-fit: contain;
+}
+
+#gmail-btn img {
+  width: 88%;
+  height: 88%;
+}
+
+/* ---- COUPLE CENTER ---- */
+.couple-wrapper {
+  position: absolute;
+  bottom: clamp(260px, 25vh, 400px);
+  /* Lifted further upwards to float elegantly and balance the layout */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 8;
+  width: clamp(210px, 28vw, 410px);
+  /* Petite and compact original size */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  opacity: 0;
+  animation: personRise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
+}
+
+.couple-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 16px 36px rgba(0, 0, 0, 0.14));
+}
+
+/* ---- CLOUD BUBBLE ---- */
+.cloud-bubble {
+  position: relative;
+  background: var(--white);
+  border: 2.5px solid var(--ink);
+  border-radius: 50%;
+  padding: clamp(14px, 2vw, 22px) clamp(18px, 2.8vw, 30px);
+  max-width: clamp(180px, 24vw, 300px);
+  text-align: center;
+  margin-bottom: 8px;
+  box-shadow:
+    3px 3px 0 var(--ink),
+    /* cloud bumps */
+    0 -18px 0 -4px var(--white),
+    0 -18px 0 -1.5px var(--ink),
+    -14px -12px 0 -4px var(--white),
+    -14px -12px 0 -1.5px var(--ink),
+    14px -12px 0 -4px var(--white),
+    14px -12px 0 -1.5px var(--ink);
+  opacity: 0;
+  pointer-events: none;
+  animation: bubblePop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s forwards;
+}
+
+.cloud-bubble p {
+  font-family: var(--font-hand);
+  font-size: clamp(12px, 1.3vw, 17px);
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+/* ---- MENU GRID ---- */
+.menu-grid {
+  position: relative;
+  z-index: 15;
+  width: 100%;
+  max-width: 1360px;
+  /* Expanded maximum span to allow columns to spread far apart on laptop/desktop */
+  margin: 0 auto;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(5, auto);
+  padding: 0 40px;
+  /* Reduced side padding so the width restriction is perfectly balanced */
+  pointer-events: all;
+  align-content: center;
+  row-gap: clamp(10px, 1.8vh, 20px);
+  column-gap: clamp(480px, 46vw, 680px);
+  /* Pushes the two straight columns very far out, leaving magnificent empty space around the petite couple */
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(6px, 1vw, 12px);
+  text-decoration: none;
+  color: var(--ink);
+  width: fit-content;
+  opacity: 0;
+  animation: menuItemIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) calc(0.6s + var(--delay)) forwards;
+  transition: transform 0.2s;
+}
+
+.menu-item:hover {
+  transform: scale(1.08) translateY(-4px);
+}
+
+.menu-item--left {
+  justify-self: end;
+  /* Align left column items to the right, pulling them closely against the couple */
+}
+
+.menu-item--right {
+  justify-self: start;
+  /* Align right column items to the left, pulling them closely against the couple */
+}
+
+/* place items in staggered rows around the couple */
+#menu-work {
+  grid-column: 1;
+  grid-row: 1;
+  position: relative;
+  left: 10px;
+  margin-top: -45px;
+}
+
+#menu-resume {
+  grid-column: 1;
+  grid-row: 3;
+  position: relative;
+  left: -85px;
+  /* Shifted slightly leftwards for subtle staggered feel */
+  margin-top: -35px;
+  margin-bottom: -15px;
+}
+
+#menu-about {
+  grid-column: 1;
+  grid-row: 5;
+  position: relative;
+  left: 10px;
+  margin-top: -65px;
+}
+
+#menu-chipheo {
+  grid-column: 2;
+  grid-row: 2;
+  position: relative;
+  margin-top: -30px;
+}
+
+#menu-chipheo .menu-icon {
+  width: clamp(84px, 12vw, 172px);
+}
+
+#menu-gallery {
+  grid-column: 2;
+  grid-row: 4;
+  position: relative;
+  margin-top: 35px;
+}
+
+#menu-gallery .menu-icon {
+  width: clamp(72px, 10.4vw, 143px);
+}
+
+#menu-resume .menu-icon {
+  width: clamp(58px, 8.4vw, 118px);
+}
+
+.menu-icon {
+  width: clamp(56px, 8vw, 110px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.15));
+  transition: filter 0.2s, transform 0.2s;
+}
+
+.menu-item:hover .menu-icon {
+  filter: drop-shadow(4px 6px 10px rgba(0, 0, 0, 0.22));
+  transform: rotate(-4deg);
+}
+
+.menu-label {
+  font-family: var(--font-display);
+  font-size: clamp(11px, 1.2vw, 16px);
+  letter-spacing: 0.14em;
+  color: var(--ink);
+  text-align: center;
+}
+
+/* ---- DECORATIVE GROUP ---- */
+.group-deco {
+  position: absolute;
+  bottom: 0;
+  right: clamp(10px, 2vw, 30px);
+  z-index: 5;
+  width: clamp(40px, 8vw, 120px);
+  height: auto;
+  opacity: 0.55;
+  pointer-events: none;
+  animation: fadeIn 0.8s ease 1.2s forwards;
+}
+
+/* =============================================
+   KEYFRAME ANIMATIONS
+   ============================================= */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes titleReveal {
+  from {
+    opacity: 0;
+    letter-spacing: 0.3em;
+    transform: scaleY(0.7);
+  }
+
+  to {
+    opacity: 1;
+    letter-spacing: -0.02em;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes personRise {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes mobileRise {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bubblePop {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes menuItemIn {
+  from {
+    opacity: 0;
+    transform: scale(0.7) translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+/* Page 2 – reset transform for couple on scroll trigger */
+.page-menu.visible .couple-wrapper,
+.page-menu.visible .cloud-bubble,
+.page-menu.visible .menu-logo,
+.page-menu.visible .menu-social,
+.page-menu.visible .menu-item {
+  animation-play-state: running;
+}
+
+/* =============================================
+   RESPONSIVE – TABLET (≤768px)
+   ============================================= */
+@media (max-width: 768px) {
+
+  .hero-title {
+    font-size: clamp(60px, 20vw, 130px);
+  }
+
+  .hero-sublabels {
+    margin-top: clamp(-80px, -10vw, -50px);
+    /* Shifted up on tablet to overlay portfolio */
+  }
+
+  .person-wrapper {
+    bottom: 30px;
+    /* Moved up a bit on tablet */
+    top: auto;
+    width: clamp(200px, 34vw, 280px);
+  }
+
+  .speech-left {
+    left: clamp(20px, 6vw, 60px);
+    top: auto;
+    bottom: clamp(0px, 2.5vw, 35px);
+    max-width: clamp(120px, 38vw, 190px);
+  }
+
+  .page-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: clamp(100px, 15vh, 145px);
+    padding-bottom: 60px;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  /* Menu grid → 2 straight vertical columns on tablet/mobile */
+  .menu-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    column-gap: clamp(20px, 6vw, 80px);
+    row-gap: clamp(20px, 4vh, 40px);
+    padding: 0 clamp(14px, 5vw, 60px);
+    width: 100%;
+    max-width: 500px;
+    margin: clamp(40px, 8vh, 80px) auto 0; /* Shifted further down */
+    flex: none;
+    align-content: start;
+  }
+
+  #menu-work {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    justify-self: center !important;
+    left: auto !important;
+  }
+
+  #menu-resume {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    justify-self: center !important;
+    left: auto !important;
+  }
+
+  #menu-resume .menu-icon {
+    width: clamp(58px, 21vw, 92px);
+  }
+
+  #menu-work .menu-icon,
+  #menu-about .menu-icon {
+    width: clamp(58px, 18vw, 92px);
+  }
+
+  #menu-about {
+    grid-column: 1 !important;
+    grid-row: 3 !important;
+    justify-self: center !important;
+    left: auto !important;
+  }
+
+  #menu-chipheo {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    justify-self: center !important;
+    left: auto !important;
+  }
+
+  #menu-chipheo .menu-icon {
+    width: clamp(82px, 29vw, 132px);
+  }
+
+  #menu-gallery {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    justify-self: center !important;
+    left: auto !important;
+  }
+
+  #menu-gallery .menu-icon {
+    width: clamp(65px, 23vw, 104px);
+  }
+
+  .menu-item--left,
+  .menu-item--right {
+    justify-self: center;
+  }
+
+  .couple-wrapper {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin: 0 auto clamp(20px, 4vh, 40px);
+    width: clamp(180px, 52vw, 340px);
+    opacity: 1;
+    z-index: 8;
+    pointer-events: none;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    animation: mobileRise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
+  }
+
+  .cloud-bubble {
+    max-width: clamp(150px, 50vw, 250px);
+  }
+}
+
+/* =============================================
+   RESPONSIVE – MOBILE (≤480px)
+   ============================================= */
+@media (max-width: 480px) {
+
+  .hero-nav {
+    padding: 12px 16px 0;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-tag {
+    font-size: 9px;
+  }
+
+  .hero-title {
+    font-size: clamp(52px, 22vw, 100px);
+    padding: 0 8px;
+  }
+
+  .hero-sublabels {
+    padding: 0 16px;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .sublabel {
+    text-align: center;
+    font-size: 11px;
+    white-space: normal;
+  }
+
+  .person-wrapper {
+    bottom: 20px;
+    /* Moved up a bit on mobile */
+    top: auto;
+    width: 62vw;
+  }
+
+  .speech-left {
+    left: 12vw;
+    bottom: 4vw;
+    max-width: 40vw;
+    padding: 0;
+  }
+
+  .page-menu {
+    padding-top: clamp(60px, 9vh, 85px);
+  }
+
+  /* Menu grid adjustments for smaller mobiles */
+  .menu-grid {
+    grid-template-columns: 1fr 1fr;
+    padding: 0 12px;
+    margin-top: clamp(25px, 6vh, 50px);
+    row-gap: 18px;
+    column-gap: 16px;
+    width: 100%;
+    max-width: 320px;
+    flex: none;
+  }
+
+  .menu-icon {
+    width: clamp(50px, 18vw, 80px);
+  }
+
+  #menu-work .menu-icon,
+  #menu-about .menu-icon {
+    width: clamp(56px, 19vw, 86px);
+  }
+
+  #menu-resume .menu-icon {
+    width: clamp(58px, 22vw, 90px);
+  }
+
+  #menu-chipheo .menu-icon {
+    width: clamp(82px, 31vw, 130px);
+  }
+
+  #menu-resume,
+  #menu-about {
+    margin-top: 15px !important;
+  }
+
+  .couple-wrapper {
+    width: 60vw;
+    margin: 0 auto 25px;
+  }
+
+  .cloud-bubble {
+    max-width: 58vw;
+    padding: 10px 12px;
+  }
+
+  .cloud-bubble p {
+    font-size: 11px;
+  }
+
+  .logo-name {
+    font-size: 13px;
+  }
+
+  .logo-sub {
+    font-size: 8px;
+  }
+
+  .logo-img {
+    height: 52px;
+  }
+}
+
+/* =============================================
+   HOVER / FOCUS STATES FOR ACCESSIBILITY
+   ============================================= */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--pink);
+  outline-offset: 3px;
+}
+
+/* =============================================
+   PRINT (hide animations)
+   ============================================= */
+@media print {
+  html {
+    scroll-snap-type: none;
+  }
+
+  .scroll-cue {
+    display: none;
+  }
+
+  * {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* =============================================
+   SUBPAGES & GLOBAL SHARED HEADER
+   ============================================= */
+.subpage-body {
+  background-color: var(--white);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+.global-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px clamp(20px, 5vw, 60px);
+  box-sizing: border-box;
+}
+
+.global-logo {
+  display: flex;
+  align-items: center;
+}
+
+.global-logo .logo-img {
+  height: clamp(60px, 6.5vw, 80px);
+  /* Reduced size for sleekness and clean integration */
+  width: auto;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.global-logo .logo-img:hover {
+  transform: scale(1.05);
+}
+
+.global-nav {
+  display: flex;
+  gap: clamp(16px, 3.5vw, 42px);
+  align-items: center;
+  margin-left: auto;
+  /* Push nav list all the way to the far right next to the social buttons */
+  margin-right: clamp(24px, 4vw, 56px);
+  /* Keep a beautiful spacing gap before the social buttons */
+}
+
+.global-nav .nav-link {
+  font-family: var(--font-body);
+  font-size: clamp(13px, 1.2vw, 15px);
+  font-weight: 400;
+  /* Regular weight, clean and elegant */
+  color: var(--ink);
+  text-decoration: none;
+  text-transform: capitalize;
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.25s ease;
+}
+
+.global-nav .nav-link:hover {
+  color: var(--pink);
+}
+
+.global-nav .nav-link.active {
+  font-weight: 400;
+  /* Keep active text lightweight and elegant, no bold */
+}
+
+.global-nav .nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+}
+
+.global-social {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.global-social .social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(32px, 3.5vw, 42px);
+  height: clamp(32px, 3.5vw, 42px);
+  border: none;
+  background: transparent;
+  padding: 0;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.global-social .social-btn img {
+  width: 70%;
+  height: auto;
+  object-fit: contain;
+}
+
+.global-social .social-btn:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.global-social .social-btn:active {
+  transform: scale(0.95);
+}
+
+/* ---- WORK CONTAINER ---- */
+.work-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.work-bg {
+  position: relative;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+}
+
+.work-bg .bg-img {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.work-title-wrapper {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.work-title-img {
+  width: 100%;
+  max-width: clamp(200px, 35vw, 500px);
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.12));
+}
+
+/* Responsive adjust for global header */
+@media (max-width: 768px) {
+  .global-header {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px 0;
+    padding: 10px 20px;
+  }
+
+  .global-logo {
+    order: 1;
+  }
+
+  .global-social {
+    order: 2;
+  }
+
+  .global-nav {
+    order: 3;
+    width: 100%;
+    margin: 8px 0 0 0;
+    justify-content: center;
+    gap: clamp(12px, 3vw, 24px);
+  }
+
+  .global-logo .logo-img {
+    height: 52px;
+    /* Sleeker elegant scale for smaller screens */
+  }
+
+  .work-title-wrapper {
+    padding-top: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .global-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 12px;
+  }
+
+  .global-nav .nav-link {
+    font-size: 13px;
+  }
+}
+
+/* ---- WORK CONTENT GRID ---- */
+.work-content {
+  background: var(--white);
+  padding: 60px clamp(20px, 5vw, 60px) 120px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.work-categories-grid {
+  max-width: none;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 8vw, 100px);
+  /* Generous gap between columns */
+}
+
+.work-column {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(30px, 5vh, 60px);
+  /* Generous spacing between works */
+}
+
+.column-title + .work-item {
+  margin-top: calc(-1 * clamp(30px, 5vh, 60px));
+}
+
+.column-title {
+  font-family: var(--font-display);
+  /* Bebas Neue / Anton */
+  font-size: clamp(24px, 3.2vw, 42px);
+  letter-spacing: 0.04em;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.column-title-img {
+  /* height: clamp(35px, 4vw, 55px); */
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.color-coral {
+  color: #F96B3E;
+  /* Hanwha coral */
+}
+
+.color-pink {
+  color: #E6007A;
+  /* Cake pink */
+}
+
+.work-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.work-img-card {
+  position: relative;
+  width: 100%;
+  /* Removed white background and overflow to let the natural hand-painted textures and shadows blend perfectly */
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.12));
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
+}
+
+.work-item:hover .work-img-card {
+  transform: translateY(-6px);
+  filter: drop-shadow(0 20px 36px rgba(0, 0, 0, 0.18));
+}
+
+.work-item-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.work-item:hover .work-item-img {
+  opacity: 0.15;
+}
+
+.work-hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 15px;
+  box-sizing: border-box;
+  text-align: center;
+  z-index: 2;
+}
+
+.work-item:hover .work-hover-overlay {
+  opacity: 1;
+}
+
+.hover-text {
+  font-family: var(--font-body), sans-serif;
+  font-size: clamp(14px, 1.7vw, 25px);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.hover-coral {
+  color: #F96B3E;
+}
+
+.hover-pink {
+  color: #E6007A;
+}
+
+.hover-green {
+  color: #48A25D;
+}
+
+.hover-purple {
+  color: #69528F;
+}
+
+.hover-blue {
+  color: #1E2B6D;
+}
+
+.work-item-caption {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(14px, 1.4vw, 18px);
+  font-weight: 700;
+  font-style: normal;
+  color: var(--ink);
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+  .work-categories-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .work-column {
+    gap: 40px;
+  }
+}
+
+/* ---- WORK FOOTER DECO ---- */
+.work-footer-deco {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+  background: var(--white);
+  /* Seamless merge with work-content above */
+}
+
+.footer-deco-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.footer-overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  width: 100%;
+  max-width: 90%;
+}
+
+.gallery-link-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.gallery-link-wrapper:hover {
+  transform: scale(1.04);
+}
+
+.notinthemood-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: clamp(10px, 2vw, 22px);
+}
+
+.notinthemood-img {
+  width: clamp(280px, 36vw, 500px);
+  /* Stretched further to an ultra-bold monumental size */
+  max-width: 100%;
+  /* Absolute responsive safety on narrow viewports */
+  /* Responsive sizing of the central artwork badge */
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.25));
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.notinthemood-text-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: -30px;
+  width: clamp(180px, 24vw, 330px);
+  /* Proportional massive scale up to overlay perfectly on the enlarged character */
+  max-width: 90%;
+  /* Ensures it stays beautifully bounded within the parent canvas */
+  /* Beautifully sized to lay perfectly inside the character canvas */
+  height: auto;
+  display: block;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.gallery-link-wrapper:hover .notinthemood-img {
+  transform: rotate(-4deg) scale(1.03);
+}
+
+.gallery-link-wrapper:hover .notinthemood-text-img {
+  transform: translate(-50%, -50%) rotate(4deg) scale(1.05);
+  /* Dynamic layered 3D rotation pop */
+}
+
+.enter-gallery-text {
+  font-family: var(--font-hand);
+  /* Caveat handwritten style font */
+  font-size: clamp(24px, 3.8vw, 46px);
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: underline;
+  text-underline-offset: clamp(6px, 1vw, 10px);
+  text-decoration-thickness: clamp(2px, 0.3vw, 4px);
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  display: inline-block;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.gallery-link-wrapper:hover .enter-gallery-text {
+  color: #fff0f4;
+  text-shadow: 0 6px 12px rgba(0, 0, 0, 0.45);
+}
+
+/* =============================================
+   CHÍ PHÈO & THỊ NỞ STORY PAGE
+   ============================================= */
+.chipheo-banner {
+  width: 100%;
+  height: auto;
+  max-height: clamp(200px, 25vw, 400px);
+  display: block;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.chipheo-banner-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.story-container {
+  background-color: var(--white);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.story-grid {
+  max-width: none;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(20px, 3.5vw, 48px);
+  padding: 60px clamp(20px, 5vw, 60px) 120px;
+  align-items: start;
+  box-sizing: border-box;
+}
+
+.story-text-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.story-subtitle {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: clamp(22px, 2.5vw, 36px);
+  line-height: 1.35;
+  color: #827C63;
+  /* Updated to requested elegant olive-tan hex */
+  margin: 0 0 clamp(24px, 3.5vw, 40px) 0;
+  letter-spacing: -0.01em;
+}
+
+.story-paragraph {
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1.05vw, 16px);
+  line-height: 1.75;
+  color: #4A4A4A;
+  margin: 0 0 24px 0;
+}
+
+.story-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.story-visual-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.polaroid-card {
+  background: var(--white);
+  padding: clamp(16px, 2.5vw, 30px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+  /* Shrunk shadow blur and made it slightly darker and tighter */
+  border-radius: 4px;
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 1 / 1;
+  /* Force perfect square proportions */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin-top: clamp(60px, 8.5vw, 140px);
+  /* Push container down to align horizontally with the story text rather than the title */
+}
+
+.polaroid-card-img {
+  width: 65%;
+  /* Shrunk further to 65% inside the square for a high-end spacious look */
+  height: auto;
+  max-height: 65%;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .story-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    padding-bottom: 80px;
+  }
+
+  .polaroid-card {
+    max-width: 100%;
+    margin-top: 0;
+    /* Reset spacing when stacked vertically on mobile */
+  }
+}
+
+/* =============================================
+   ABOUT ME PAGE
+   ============================================= */
+.about-content {
+  background-color: #A29368;
+  /* Khaki background as requested */
+  color: var(--white);
+  width: 100%;
+  padding: 80px clamp(20px, 5vw, 60px) 120px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.about-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.about-title-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+  /* Remove margin since we are overlapping the text upwards */
+  position: relative;
+  z-index: 1;
+  /* Sits underneath the overlapping text body */
+}
+
+.about-title-img {
+  width: 100%;
+  max-width: 100%;
+  /* Stretched fully to 100% for absolute visual domination */
+  height: auto;
+  display: block;
+}
+
+.about-quote {
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1.45vw, 21px);
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--white);
+  max-width: none;
+  /* Ultimate negative top margin to pull the text body intensely high over the grand title graphic */
+  margin: clamp(-100px, -16vw, -280px) auto clamp(36px, 4.5vw, 48px) auto;
+  padding: 0;
+  letter-spacing: -0.01em;
+  position: relative;
+  z-index: 10;
+  /* Guarantees the text overlays ON TOP of the image */
+}
+
+.about-desc {
+  font-family: var(--font-body);
+  font-size: clamp(13px, 1.1vw, 16px);
+  line-height: 1.8;
+  color: rgba(250, 250, 247, 0.92);
+  /* Soft off-white */
+  max-width: none;
+  /* Removed max-width to let the text stretch fully */
+  margin: 0 auto 26px auto;
+}
+
+.about-desc:last-of-type {
+  margin-bottom: 0;
+}
+
+.about-btn-wrapper {
+  margin-top: clamp(48px, 6vw, 76px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.about-unlock-btn {
+  background-color: #594924;
+  /* Darker chocolate-khaki button */
+  color: var(--white);
+  border: none;
+  border-radius: 0;
+  /* Flat block design matching the grid style */
+  padding: clamp(14px, 1.8vw, 22px) clamp(28px, 4vw, 56px);
+  font-family: var(--font-display);
+  font-size: clamp(16px, 2vw, 30px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about-unlock-btn:hover {
+  background-color: #473a1c;
+  transform: scale(1.02);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+.about-bottom-banner {
+  position: relative;
+  /* Crucial anchor for absolutely positioned overlay stickers */
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  line-height: 0;
+  /* Prevents tiny default browser blank spacing at bottom of images */
+  background-color: #A29368;
+  /* Khaki matches the main container background seamlessly */
+}
+
+.about-bottom-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- Absolute Overlay Stickers (Trum 1 - Trum 7) --- */
+.trum-sticker {
+  position: absolute;
+  height: auto;
+  z-index: 5;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.15));
+  cursor: pointer;
+}
+
+.trum-sticker:hover {
+  transform: scale(1.04);
+  /* Subtle scale up on hover */
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.2));
+}
+
+/* Beautifully scattered percentage coordinates ensuring pristine responsive scaling */
+.trum-1 {
+  left: 20%;
+  top: 12%;
+  width: 26%;
+}
+
+.trum-2 {
+  right: 6%;
+  top: 10%;
+  width: 40%;
+}
+
+.trum-3 {
+  left: 10%;
+  /* Shifted further to the right edge */
+  top: 18%;
+  /* Shifted significantly upwards */
+  width: 44%;
+}
+
+.trum-4 {
+  left: 44%;
+  top: 30%;
+  width: 44%;
+}
+
+.trum-5 {
+  left: 0%;
+  bottom: 20%;
+  width: 50%;
+}
+
+.trum-6 {
+  left: 36%;
+  bottom: 16%;
+  width: 40%;
+  transform: translateX(-50%);
+}
+
+.trum-6:hover {
+  transform: translateX(-50%) scale(1.04);
+  /* Subtle scale up while preserving central alignment */
+}
+
+.trum-7 {
+  right: 9%;
+  bottom: 8%;
+  width: 52%;
+}
+
+/* =============================================
+   CV / RESUME PAGE
+   ============================================= */
+.cv-content {
+  /* margin-top: 80px; */
+  width: 100%;
+  padding: 0px clamp(20px, 5vw, 60px) 120px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  /* Creamy off-white background creating high contrast with the paper sheet */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.cv-container {
+  width: 100%;
+  max-width: 920px;
+  /* Museum-grade centered width limit for realistic paper aesthetic */
+  overflow: hidden;
+  /* Physically crops out the duplicate logo internally */
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+  /* Sophisticated drop-shadow to simulate a physical paper sheet floating */
+  background-color: var(--white);
+  border-radius: 4px;
+}
+
+.cv-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* margin-top: -12.7%; */
+  /* Shifted down slightly to show more of the top page spacing */
+}
+
+/* =============================================
+   MOBILE & TABLET RESPONSIVE OVERRIDES (Thorough Refinements)
+   ============================================= */
+@media (max-width: 768px) {
+  /* CV Page: Milder offset on mobile to prevent clipping of critical CV content */
+
+  /* About Me Page: Reduce negative top margin of the title image overlap to keep it centered and readable on smaller viewports */
+  .about-quote {
+    margin: clamp(-60px, -10vw, -30px) auto clamp(24px, 3.5vw, 36px) auto;
+  }
+
+  /* Make sure the stickers on the bottom banner adapt comfortably on tablet/mobile screens */
+  .trum-sticker {
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.12));
+  }
+}
+
+@media (max-width: 480px) {
+  /* CV Page: Even gentler offset on narrow mobile viewports to keep text aligned beautifully */
+
+  /* About Me Page: Minimal overlap for absolute clarity on compact screens */
+  .about-quote {
+    margin-top: -8vw;
+    margin-bottom: 20px;
+  }
+}
+
+/* =============================================
+   BÉ CAM MASCOT CAMPAIGN PAGE
+   ============================================= */
+.becam-body {
+  background-color: #ffffff !important;
+}
+
+.becam-content {
+  width: 100%;
+  padding: 0;
+  /* Fully removed padding so the first image sits perfectly flush with the header */
+  box-sizing: border-box;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.becam-container {
+  width: 100%;
+  max-width: 100%;
+  /* Spans 100% full viewport width as requested */
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  /* Seamless transition between the two banner campaign images */
+  position: relative;
+  z-index: 1;
+}
+
+.becam-img-card {
+  width: 100%;
+  overflow: hidden;
+}
+
+.becam-container > .becam-img-card:first-of-type {
+  height: auto;
+  max-height: clamp(200px, 25vw, 400px);
+}
+
+.becam-container > .becam-img-card:first-of-type .becam-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.brand_mascot_img {
+  margin-top: 90px;
+}
+
+.becam-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Campaign Metadata Section */
+.becam-meta-section {
+  background-color: #ffffff;
+  padding: 0 var(--becam-side-padding) clamp(20px, 4vw, 60px);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1.15vw, 17px);
+  line-height: 1.6;
+  color: var(--ink);
+  box-sizing: border-box;
+}
+
+.becam-meta-row {
+  margin-bottom: 12px;
+}
+
+.orange-label {
+  color: #F96B3E;
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+.becam-role-list {
+  list-style-type: disc;
+  margin: 12px 0 0 20px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  line-height: 1.45;
+}
+
+.becam-role-list li {
+  margin: 0;
+}
+
+.becam-role-list li strong {
+  font-weight: 700;
+}
+
+.becam-blue-banner {
+  background-color: transparent;
+  padding: clamp(20px, 3vw, 40px) var(--becam-side-padding);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Pink Banner for Debeat */
+.pink-banner {
+  background-color: transparent;
+  padding: clamp(20px, 3vw, 40px) var(--becam-side-padding);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pink-banner h2 {
+  color: #ff1493;
+  /* Bright pink */
+  font-family: var(--font-body);
+  font-size: clamp(28px, 3vw, 40px);
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.pink-banner p {
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1.15vw, 17px);
+  line-height: 1.6;
+  margin: 0 auto 0 0;
+  text-align: left;
+}
+
+/* Collection Banner for Debeat */
+.collection-banner {
+  background-color: #ff6cbd;
+  /* Cake pink */
+  padding: clamp(15px, 3vw, 35px) var(--becam-side-padding);
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.collection-banner h2 {
+  color: #00ff7f;
+  /* Bright spring green */
+  font-family: var(--font-body);
+  font-size: clamp(28px, 3.5vw, 48px);
+  margin: 0;
+  font-weight: 700;
+}
+
+.swipe-label {
+  color: #ff1493;
+  /* Bright pink */
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1.15vw, 17px);
+  font-weight: 500;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.pink-label {
+  color: #ff1493;
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+.becam-banner-title {
+  font-family: var(--font-body);
+  font-size: clamp(28px, 3vw, 40px);
+  color: #F96B3E;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.becam-banner-text {
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1.15vw, 17px);
+  line-height: 1.6;
+  color: var(--ink);
+  margin: 0 auto 0 0;
+  text-align: left;
+}
+
+/* Middle Artwork Section */
+.becam-artwork-section {
+  background-color: #ffffff;
+  padding: clamp(20px, 5vw, 60px) var(--becam-side-padding);
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.becam-artwork-wrapper {
+  width: 100%;
+  max-width: 1180px;
+  /* Aligns beautifully with text content limits */
+  box-sizing: border-box;
+}
+
+.becam-artwork-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Icon Grid */
+.becam-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 0;
+  /* Zero gap between icons as requested */
+  width: 100%;
+}
+
+.becam-icon-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Social Activation Specific Styles */
+.becam-banner-left-content {
+  margin: 16px 0 0 0;
+  text-align: left;
+}
+
+.becam-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(28px, 3.5vw, 42px);
+  color: #FF802F;
+  font-weight: 300;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.02em;
+}
+
+/* =============================================
+   BÉ CAM PAGE RESPONSIVE
+   ============================================= */
+@media (max-width: 900px) {
+  .becam-icon-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --becam-side-padding: clamp(16px, 4vw, 32px);
+  }
+
+  .becam-icon-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .becam-blue-banner {
+    padding: clamp(16px, 3vw, 24px) var(--becam-side-padding);
+  }
+
+  .pink-banner {
+    padding: clamp(16px, 3vw, 24px) var(--becam-side-padding);
+  }
+
+  .collection-banner {
+    padding: clamp(16px, 3vw, 24px) var(--becam-side-padding);
+  }
+
+  .becam-meta-section {
+    padding: clamp(24px, 4vw, 40px) var(--becam-side-padding);
+  }
+
+  .becam-artwork-section {
+    padding: clamp(20px, 3vw, 40px) var(--becam-side-padding);
+  }
+}
+
+@media (max-width: 480px) {
+  .becam-icon-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .becam-blue-banner {
+    text-align: left;
+  }
+}
+
+/* Footer Navigation for Bé Cam page */
+.becam-footer-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(20px, 3vw, 40px) var(--becam-side-padding) clamp(30px, 5vw, 60px);
+  background-color: #ffffff;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.becam-footer-nav .nav-btn {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.becam-footer-nav .nav-btn:hover {
+  transform: scale(1.05);
+}
+
+.becam-footer-nav .nav-btn img {
+  height: auto;
+  max-width: 100%;
+}
+
+.becam-footer-nav .prev-btn img,
+.becam-footer-nav .next-btn img {
+  max-height: 60px;
+}
+
+.becam-footer-nav .home-btn img {
+  max-height: 70px;
+}
+
+@media (max-width: 768px) {
+  .becam-footer-nav {
+    padding: 0 var(--becam-side-padding) 30px;
+  }
+
+  .becam-footer-nav .prev-btn img,
+  .becam-footer-nav .next-btn img {
+    max-height: 40px;
+  }
+
+  .becam-footer-nav .home-btn img {
+    max-height: 50px;
+  }
+}
+
+/* Specific responsiveness rules for gallery page content wrapper */
+.gallery-body .becam-artwork-wrapper {
+  padding: 0 var(--becam-side-padding);
+}
+
+/* =============================================
+   SCROLL REVEAL EFFECTS
+   ============================================= */
+.scroll-reveal {
+  opacity: 0;
+  transform: translate3d(0, 30px, 0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transition: opacity 0.55s cubic-bezier(0.25, 1, 0.5, 1), transform 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.scroll-reveal.active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

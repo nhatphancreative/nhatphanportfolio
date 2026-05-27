@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Debeat Card project by Nhat Phan." />
+  <title>Nhat Phan | Debeat Card</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Caveat:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style_v12.css?v=16" />
+  <style>
+    body.subpage-body {
+      background-color: #ffffff !important;
+    }
+    .horizontal-scroll-container {
+      width: 100%;
+      overflow-x: auto;
+      padding: 120px 0 40px 0;
+      background-color: #ffffff;
+      -webkit-overflow-scrolling: touch;
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+    .horizontal-scroll-container::-webkit-scrollbar {
+      display: none; /* Hide scrollbar for Chrome, Safari and Opera */
+    }
+    .scroll-wrapper {
+      display: flex;
+      gap: 30px;
+      padding: 0 clamp(20px, 6vw, 120px);
+      width: max-content;
+    }
+    .scroll-img {
+      height: clamp(400px, 55vh, 800px);
+      width: auto;
+      border-radius: 20px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .scroll-img:hover {
+      transform: translateY(-8px);
+    }
+  </style>
+</head>
+<body class="subpage-body">
+
+  <!-- Global Header Container (Loaded dynamically from script.js) -->
+  <div id="global-header-container"></div>
+
+  <!-- ==================== DEBEAT CARD CONTENT ==================== -->
+  <main class="becam-content">
+    <div class="becam-container">
+      
+      <!-- Top Image: In A World -->
+      <div class="becam-img-card">
+        <img src="image/debeat_card/in_a_world.png" alt="In A World" class="becam-img" />
+      </div>
+
+      <!-- Bottom Image: THEBEATCARD -->
+      <div class="becam-img-card" style="padding-top: 80px; padding-bottom: 60px; padding-left: var(--becam-side-padding); padding-right: var(--becam-side-padding); box-sizing: border-box; display: flex; justify-content: center; width: 100%;">
+        <div class="becam-artwork-wrapper" style="max-width: 1350px;">
+          <img src="image/debeat_card/THEBEATCARD.png" alt="THEBEATCARD" class="becam-img" />
+        </div>
+      </div>
+
+      <!-- Campaign Metadata Section -->
+      <section class="becam-meta-section">
+        <div class="becam-artwork-wrapper" style="text-align: left;">
+          <div class="becam-meta-row"><span class="pink-label">Category:</span> Product Design</div>
+          <div class="becam-meta-row"><span class="pink-label">Year:</span> 2025</div>
+          <div class="becam-meta-row"><span class="pink-label">Role:</span></div>
+          <ul class="becam-role-list">
+            <li><strong>Ideation:</strong> Developed creative concepts and campaign ideas</li>
+            <li><strong>Visual Development:</strong> Created debit card visuals and posters</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Pink Banner: Background -->
+      <section class="pink-banner">
+        <div class="becam-artwork-wrapper" style="text-align: left;">
+          <h2>Background</h2>
+          <p>Digibank is the bank of the future, for future generations, for Gen Z. However, digibank products, such as debit cards, are still similar to traditional banks, with boring design, which contradicts what it stands for Gen Z.</p>
+        </div>
+      </section>
+
+      <!-- Artwork Section: Background -->
+      <section class="becam-artwork-section">
+        <div class="becam-artwork-wrapper">
+          <img src="image/debeat_card/background.png" alt="Background Artwork" class="becam-artwork-img" />
+          <img src="image/debeat_card/background_1.png" alt="Background Artwork 1" class="becam-artwork-img" style="margin-top: 40px;" />
+        </div>
+      </section>
+
+      <!-- Pink Banner: Insight -->
+      <section class="pink-banner">
+        <div class="becam-artwork-wrapper" style="text-align: left;">
+          <h2>Insight</h2>
+          <p>Gen Z craves personalization and self-expression, especially through music. Music brings rhythm and energy to every activity, connecting people together.</p>
+        </div>
+      </section>
+
+      <!-- Artwork Section: Insight -->
+      <section class="becam-artwork-section">
+        <div class="becam-artwork-wrapper">
+          <img src="image/debeat_card/insight.png" alt="Insight Artwork" class="becam-artwork-img" />
+          <img src="image/debeat_card/insight_1.png" alt="Insight Artwork 1" class="becam-artwork-img" style="margin-top: 40px;" />
+        </div>
+      </section>
+
+      <!-- Pink Banner: Idea -->
+      <section class="pink-banner">
+        <div class="becam-artwork-wrapper" style="text-align: left;">
+          <h2>Idea</h2>
+          <p>Turn your debit card into your favorite Spotify song of your own, no longer just a debit card, but a pocket-sized anthem that reflects your style, your vibe, and your connections. It's a part of who you are, sparking conversations and connections with everyone who gets a glimpse of it.</p>
+        </div>
+      </section>
+
+      <!-- Artwork Section: Idea -->
+      <section class="becam-artwork-section">
+        <div class="becam-artwork-wrapper">
+          <img src="image/debeat_card/idea.png" alt="Idea Artwork" class="becam-artwork-img" />
+          <img src="image/debeat_card/idea_1.png" alt="Idea Artwork 1" class="becam-artwork-img" style="margin-top: 40px;" />
+        </div>
+      </section>
+
+      <!-- Collection Banner -->
+      <section class="collection-banner">
+        <h2>Collection</h2>
+      </section>
+
+      <!-- Swipe Label -->
+      <div class="swipe-label">Swipe to see &gt;&gt;</div>
+
+      <!-- Horizontal Scroll Section -->
+      <div class="horizontal-scroll-container">
+        <div class="scroll-wrapper">
+          <img src="image/debeat_card/scroll_1.png" alt="Scroll 1" class="scroll-img" />
+          <img src="image/debeat_card/scroll_2.png" alt="Scroll 2" class="scroll-img" />
+          <img src="image/debeat_card/scroll_3.png" alt="Scroll 3" class="scroll-img" />
+          <img src="image/debeat_card/scroll_4.png" alt="Scroll 4" class="scroll-img" />
+          <img src="image/debeat_card/scroll_5.png" alt="Scroll 5" class="scroll-img" />
+          <img src="image/debeat_card/scroll_6.png" alt="Scroll 6" class="scroll-img" />
+          <img src="image/debeat_card/scroll_7.png" alt="Scroll 7" class="scroll-img" />
+          <img src="image/debeat_card/scroll_8.png" alt="Scroll 8" class="scroll-img" />
+        </div>
+      </div>
+
+      <!-- Artwork Section: Collection 1 -->
+      <section class="becam-artwork-section">
+        <div class="becam-artwork-wrapper">
+          <img src="image/debeat_card/collection_1.png" alt="Collection 1" class="becam-artwork-img" />
+        </div>
+      </section>
+
+      <!-- Pink Banner: The Deeper Meaning -->
+      <section class="pink-banner">
+        <div class="becam-artwork-wrapper" style="text-align: left;">
+          <h2>The deeper meaning</h2>
+          <p>Real-life interactions are becoming increasingly rare, as most connections happen online. This debit card concept is designed to bring back that lost sense of human connection, while still allowing for individual expression. Gen Z craves personalization, and what better way to express themselves than through music?</p>
+          <p style="margin-top: 15px;">This card doesn't just reflect personal style; it becomes a bridge to direct, meaningful interactions between people. Imagine your Cake debit card designed to look like your favorite Spotify song. Every time you use it, it catches the eye, sparking curiosity from those around you. Maybe the cashier notices the song and asks about it, turning a simple transaction into a conversation about music tastes and style. Or someone at a café notices the design and shares the same taste.</p>
+          <p style="margin-top: 15px;">What was once a silent transaction now turns into a moment of connection - sparked by music.</p>
+        </div>
+      </section>
+
+      <!-- Artwork Section: The Deeper Meaning -->
+      <section class="becam-artwork-section">
+        <div class="becam-artwork-wrapper">
+          <img src="image/debeat_card/the_deeper_maining.png" alt="The Deeper Meaning" class="becam-artwork-img" />
+        </div>
+      </section>
+
+      <!-- Pink Banner: OOH -->
+      <section class="pink-banner">
+        <div class="becam-artwork-wrapper" style="text-align: left;">
+          <h2>OOH & Social Activation</h2>
+          <p>A series of OOH posters will be deployed across the city, extending the campaign's visual identity and transforming everyday spaces into reminders to let your debit card DEBEAT!</p>
+        </div>
+      </section>
+
+      <!-- Artwork Section: OOH -->
+      <section class="becam-artwork-section">
+        <div class="becam-artwork-wrapper">
+          <img src="image/debeat_card/ohh.png" alt="OOH Artwork" class="becam-artwork-img" />
+        </div>
+      </section>
+
+      <!-- Pink Banner: Footer Disclaimer -->
+      <section style="background-color: #ff1493; padding: 15px 0; text-align: center; width: 100%; box-sizing: border-box;">
+        <p style="color: #00ff7f; font-size: 18px; font-weight: normal; margin: 0; text-align: center;">Personal project for non-profit purpose</p>
+      </section>
+
+      <!-- Footer Navigation -->
+      <section class="becam-footer-nav">
+        <a href="work.html" class="nav-btn prev-btn">
+          <img src="image/prev.png" alt="Prev" />
+          <img src="image/otherworks.png" alt="Other Works" style="margin-left: 10px;" />
+        </a>
+        <a href="index.html" class="nav-btn home-btn">
+          <img src="image/home.png" alt="Home" />
+        </a>
+        <a href="trungthu.html" class="nav-btn next-btn">
+          <img src="image/nextwork.png" alt="Next Work" style="margin-right: 10px;" />
+          <img src="image/next.png" alt="Next" />
+        </a>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
