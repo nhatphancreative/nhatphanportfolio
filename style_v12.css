@@ -308,7 +308,7 @@ body {
    ============================================= */
 .page-menu {
   align-items: flex-start;
-  padding-top: clamp(50px, 7vh, 90px);
+  padding-top: 100px;
 }
 
 /* ---- HEADER ---- */
