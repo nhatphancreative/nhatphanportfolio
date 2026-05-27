@@ -395,7 +395,7 @@ body {
 /* ---- COUPLE CENTER ---- */
 .couple-wrapper {
   position: absolute;
-  bottom: clamp(180px, 22vh, 280px);
+  bottom: clamp(140px, 20vh, 240px);
   /* Lifted further upwards to float elegantly and balance the layout */
   left: 50%;
   transform: translateX(-50%);
