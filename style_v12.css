@@ -308,6 +308,8 @@ body {
    ============================================= */
 .page-menu {
   align-items: flex-start;
+  padding-top: clamp(40px, 5vh, 80px);
+  padding-bottom: clamp(40px, 5vh, 80px);
 }
 
 /* ---- HEADER ---- */
