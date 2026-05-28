@@ -959,7 +959,7 @@ body {
   }
 
   .couple-wrapper {
-    width: clamp(170px, 55vw, 240px);
+    width: clamp(250px, 55vw, 400px);
     margin: 15px auto 0;
   }
 
