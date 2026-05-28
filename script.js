@@ -207,7 +207,7 @@
   if (coupleImg) {
     const coupleFrames = [
       'image/couple_center.png',
-      'image/couple_center1.png',
+      'image/couple_center1.svg',
       'image/couple_center2.png',
       'image/couple_center3.png',
       'image/couple_center4.png',
@@ -240,7 +240,7 @@
   if (polaroidImg) {
     const chipheoFrames = [
       'image/avt_chipheothino.png',
-      'image/avt_chipheothino1.png',
+      'image/avt_chipheothino1.svg',
       'image/avt_chipheothino2.png',
       'image/avt_chipheothino3.png',
       'image/avt_chipheothino4.png',
@@ -304,8 +304,7 @@
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('active');
-          } else {
-            entry.target.classList.remove('active');
+            revealObserver.unobserve(entry.target);
           }
         });
       },
