@@ -863,7 +863,7 @@ body {
     margin-top: clamp(25px, 4vh, 50px);
     margin-left: auto;
     margin-right: auto;
-    width: clamp(170px, 44vw, 320px);
+    width: clamp(200px, 50vw, 360px);
     opacity: 1;
     z-index: 5;
     pointer-events: none;
@@ -959,7 +959,7 @@ body {
   }
 
   .couple-wrapper {
-    width: clamp(140px, 45vw, 200px);
+    width: clamp(170px, 55vw, 240px);
     margin: 15px auto 0;
   }
 
