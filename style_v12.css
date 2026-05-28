@@ -910,17 +910,21 @@ body {
   /* Menu grid adjustments for smaller mobiles */
   .menu-grid {
     display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    gap: 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
     padding: 0 12px;
-    margin-top: clamp(15px, 3.5vh, 40px);
+    margin-top: clamp(25px, 6vh, 50px);
     width: 100%;
-    max-width: 320px;
+    max-width: clamp(290px, 85vw, 360px);
   }
 
   .menu-column {
-    gap: clamp(14px, 3vh, 22px);
+    gap: clamp(18px, 3.8vh, 30px);
+  }
+
+  .menu-column--right {
+    margin-top: -35px;
   }
 
   .menu-icon {
