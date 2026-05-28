@@ -777,7 +777,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     padding-top: clamp(45px, 8vh, 85px);
-    padding-bottom: clamp(180px, 25vh, 250px);
+    padding-bottom: 40px;
     height: auto !important;
     min-height: 100vh;
     min-height: 100svh;
@@ -855,18 +855,20 @@ body {
   }
 
   .couple-wrapper {
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0;
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin-top: clamp(25px, 4vh, 50px);
+    margin-left: auto;
+    margin-right: auto;
     width: clamp(170px, 44vw, 320px);
     opacity: 1;
     z-index: 5;
     pointer-events: none;
     will-change: transform, opacity;
     backface-visibility: hidden;
-    animation: personRise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
+    animation: mobileRise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
   }
 
   .cloud-bubble {
@@ -925,7 +927,7 @@ body {
 
   .page-menu {
     padding-top: clamp(35px, 5.5vh, 50px);
-    padding-bottom: clamp(150px, 22vh, 190px);
+    padding-bottom: 30px;
   }
 
   /* Menu grid adjustments for smaller mobiles */
@@ -957,7 +959,7 @@ body {
 
   .couple-wrapper {
     width: clamp(140px, 45vw, 200px);
-    margin: 0;
+    margin: 15px auto 0;
   }
 
   .cloud-bubble {
