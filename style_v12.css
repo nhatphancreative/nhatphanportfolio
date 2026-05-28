@@ -738,6 +738,12 @@ body {
    ============================================= */
 @media (max-width: 768px) {
 
+  html:not(:has(.subpage-body)),
+  html:not(:has(.subpage-body)) body {
+    overflow-y: auto !important;
+    height: auto !important;
+  }
+
   .hero-title {
     font-size: clamp(60px, 20vw, 130px);
   }
@@ -771,10 +777,11 @@ body {
     justify-content: flex-start;
     align-items: center;
     padding-top: clamp(45px, 8vh, 85px);
-    padding-bottom: 20px;
-    height: 100%;
-    min-height: 100%;
-    overflow: hidden;
+    padding-bottom: clamp(180px, 25vh, 250px);
+    height: auto !important;
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow: visible !important;
     box-sizing: border-box;
   }
 
@@ -918,6 +925,7 @@ body {
 
   .page-menu {
     padding-top: clamp(35px, 5.5vh, 50px);
+    padding-bottom: clamp(150px, 22vh, 190px);
   }
 
   /* Menu grid adjustments for smaller mobiles */
