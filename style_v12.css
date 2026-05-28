@@ -805,6 +805,7 @@ body {
   .menu-item {
     left: 0 !important;
     margin: 0 !important;
+    justify-self: center !important;
   }
 
   #menu-work {
