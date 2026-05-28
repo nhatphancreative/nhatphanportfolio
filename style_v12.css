@@ -863,7 +863,7 @@ body {
     margin-top: clamp(25px, 4vh, 50px);
     margin-left: auto;
     margin-right: auto;
-    width: clamp(200px, 50vw, 360px);
+    width: clamp(260px, 60vw, 420px);
     opacity: 1;
     z-index: 5;
     pointer-events: none;
