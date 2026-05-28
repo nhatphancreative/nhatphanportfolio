@@ -909,14 +909,18 @@ body {
 
   /* Menu grid adjustments for smaller mobiles */
   .menu-grid {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 20px;
     padding: 0 12px;
-    margin-top: clamp(25px, 6vh, 50px);
+    margin-top: clamp(15px, 3.5vh, 40px);
     width: 100%;
-    max-width: clamp(290px, 85vw, 360px);
+    max-width: 320px;
   }
 
   .menu-column {
-    gap: clamp(18px, 3.8vh, 30px);
+    gap: clamp(14px, 3vh, 22px);
   }
 
   .menu-icon {
