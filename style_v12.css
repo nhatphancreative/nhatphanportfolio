@@ -420,7 +420,7 @@ body {
 /* ---- COUPLE CENTER ---- */
 .couple-wrapper {
   position: absolute;
-  bottom: clamp(40px, 4vh, 70px);
+  bottom: clamp(55px, 5.5vh, 90px);
   /* Shifted down to avoid touching the header */
   left: 50%;
   transform: translateX(-50%);
