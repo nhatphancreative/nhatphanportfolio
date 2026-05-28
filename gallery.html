@@ -7,7 +7,9 @@
   <title>Gallery - Nhat Phan Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Caveat:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Caveat:wght@400;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="style_v12.css?v=16" />
   <style>
     .horizontal-scroll-container {
@@ -54,6 +56,7 @@
       width: auto;
       border-radius: 0;
       object-fit: cover;
+      flex-shrink: 0;
     }
   </style>
 </head>
@@ -67,16 +70,15 @@
 
       <!-- Top Image: Banner -->
       <div class="becam-img-card">
-        <img src="image/gallery/banner.png" alt="Gallery Banner" class="becam-img" />
+        <img src="image/gallery/banner.webp" alt="Gallery Banner" class="becam-img" />
       </div>
 
       <!-- Section Title Image -->
-        <div class="swipe-label" style="margin-top: 40px; margin-bottom: 30px;">Swipe to see &gt;&gt;</div>
+      <div class="swipe-label" style="margin-top: 40px; margin-bottom: 30px;">Swipe to see &gt;&gt;</div>
       <div
         style="max-width: 1380px; margin: 100px auto 40px; padding: 0 var(--becam-side-padding); box-sizing: border-box; width: 100%; text-align: center;">
-       
-        <img src="image/cake_by_vpbank.svg" alt="Cake by VPBank"
-          style="max-width: 800px; width: 100%; height: auto;" />
+
+        <img src="image/cake_by_vpbank.svg" alt="Cake by VPBank" style="max-width: 800px; width: 100%; height: auto;" />
         <p
           style="color: #271D7A; font-family: var(--font-body); font-size: clamp(28px, 1.5vw, 28px); font-weight: 500; margin-top: 80px;">
           Social post</p>
@@ -85,7 +87,8 @@
       <!-- Horizontal Scroll Section -->
       <div class="horizontal-scroll-container">
         <div class="scroll-wrapper">
-          <img src="image/gallery/img_cake_by_vpbank.png" alt="Cake by VPBank Gallery" class="scroll-img" style="height: clamp(580px, 75vh, 950px);" />
+          <img src="image/gallery/img_cake_by_vpbank.avif" alt="Cake by VPBank Gallery" class="scroll-img"
+            style="height: clamp(580px, 75vh, 950px);" />
         </div>
       </div>
       <!-- Results Section -->
@@ -125,23 +128,9 @@
 
       <!-- Horizontal Scroll Section (from debeat) -->
       <div class="horizontal-scroll-container" style="padding: 40px 0;">
-        <div class="scroll-wrapper" style="gap: 30px;">
-          <img src="image/debeat_card/scroll_1.png" alt="Scroll 1" class="scroll-img"
-            style="height: clamp(400px, 55vh, 800px); border-radius: 20px;" />
-          <img src="image/debeat_card/scroll_2.png" alt="Scroll 2" class="scroll-img"
-            style="height: clamp(400px, 55vh, 800px); border-radius: 20px;" />
-          <img src="image/debeat_card/scroll_3.png" alt="Scroll 3" class="scroll-img"
-            style="height: clamp(400px, 55vh, 800px); border-radius: 20px;" />
-          <img src="image/debeat_card/scroll_4.png" alt="Scroll 4" class="scroll-img"
-            style="height: clamp(400px, 55vh, 800px); border-radius: 20px;" />
-          <img src="image/debeat_card/scroll_5.png" alt="Scroll 5" class="scroll-img"
-            style="height: clamp(400px, 55vh, 800px); border-radius: 20px;" />
-          <img src="image/debeat_card/scroll_6.png" alt="Scroll 6" class="scroll-img"
-            style="height: clamp(400px, 55vh, 800px); border-radius: 20px;" />
-          <img src="image/debeat_card/scroll_7.png" alt="Scroll 7" class="scroll-img"
-            style="height: clamp(400px, 55vh, 800px); border-radius: 20px;" />
-          <img src="image/debeat_card/scroll_8.png" alt="Scroll 8" class="scroll-img"
-            style="height: clamp(400px, 55vh, 800px); border-radius: 20px;" />
+        <div class="scroll-wrapper">
+          <img src="image/gallery/debeat_card_scroll.avif" alt="Debeat Card Scroll" class="scroll-img"
+            style="height: clamp(650px, 80vh, 1000px); width: auto; object-fit: contain; max-width: none;" />
         </div>
       </div>
       <!-- Heading: Mockup card -->
@@ -156,7 +145,8 @@
       <!-- Horizontal Scroll Section: Mockup Card -->
       <div class="horizontal-scroll-container" style="padding: 40px 0;">
         <div class="scroll-wrapper">
-          <img src="image/gallery/mockup_card.png" alt="Mockup Card" class="scroll-img" style="height: clamp(650px, 80vh, 1000px);" />
+          <img src="image/gallery/mockup_card.webp" alt="Mockup Card" class="scroll-img"
+            style="height: clamp(650px, 80vh, 1000px);" />
         </div>
       </div>
 
@@ -172,7 +162,7 @@
       <!-- Horizontal Scroll Section: OOH -->
       <div class="horizontal-scroll-container" style="padding: 40px 0;">
         <div class="scroll-wrapper">
-          <img src="image/gallery/ohh.png" alt="OOH" class="scroll-img" style="height: clamp(650px, 80vh, 1000px);" />
+          <img src="image/gallery/ohh.webp" alt="OOH" class="scroll-img" style="height: clamp(650px, 80vh, 1000px);" />
         </div>
       </div>
 
@@ -201,7 +191,8 @@
       <!-- Horizontal Scroll Section: Cham Cake Gallery -->
       <div class="horizontal-scroll-container" style="padding: 0 0 60px 0;">
         <div class="scroll-wrapper">
-          <img src="image/gallery/cham_cake_ti.png" alt="Cham Cake Gallery" class="scroll-img" style="height: clamp(580px, 75vh, 950px);" />
+          <img src="image/gallery/cham_cake_ti.webp" alt="Cham Cake Gallery" class="scroll-img"
+            style="height: clamp(580px, 75vh, 950px);" />
         </div>
       </div>
 
@@ -234,7 +225,8 @@
           </div>
         </div>
         <!-- Artwork Section: Trung Thu Day Du -->
-        <section style="display: flex; justify-content: center; width: 100%; padding: 130px 0 60px; box-sizing: border-box;">
+        <section
+          style="display: flex; justify-content: center; width: 100%; padding: 130px 0 60px; box-sizing: border-box;">
           <div class="becam-artwork-wrapper">
             <img src="image/trungthu/trung_thu_day_du.png" alt="Trung Thu" class="becam-artwork-img"
               style="max-width: 400px; width: 100%; height: auto; display: block; margin: 0 auto;" />
@@ -244,7 +236,8 @@
         <!-- Horizontal Scroll Section: Result -->
         <div class="horizontal-scroll-container" style="padding: 0 0 60px 0;">
           <div class="scroll-wrapper">
-            <img src="image/gallery/result.png" alt="Result" class="scroll-img" style="height: clamp(580px, 75vh, 950px);" />
+            <img src="image/gallery/result.avif" alt="Result" class="scroll-img"
+              style="height: clamp(580px, 75vh, 950px);" />
           </div>
         </div>
 
@@ -282,7 +275,7 @@
         <section
           style="display: flex; justify-content: center; width: 100%; padding: 0 0 20px 0; box-sizing: border-box;">
           <div class="becam-artwork-wrapper">
-            <img src="image/gallery/cticket.png" alt="cTicket" class="becam-artwork-img"
+            <img src="image/gallery/img_cticket.svg" alt="cTicket" class="becam-artwork-img"
               style="max-width: 400px; width: 100%; height: auto; display: block; margin: 0 auto;" />
           </div>
         </section>
@@ -300,7 +293,8 @@
         <!-- Horizontal Scroll Section: img_sticket -->
         <div class="horizontal-scroll-container" style="padding: 0 0 60px 0;">
           <div class="scroll-wrapper">
-            <img src="image/gallery/img_sticket.png" alt="Sticket" class="scroll-img" style="height: clamp(580px, 75vh, 950px);" />
+            <img src="image/gallery/img_sticket.webp" alt="Sticket" class="scroll-img"
+              style="height: clamp(580px, 75vh, 950px);" />
           </div>
         </div>
 
@@ -347,7 +341,8 @@
           <!-- Horizontal Scroll Section: Hanwa -->
           <div class="horizontal-scroll-container" style="padding: 0 0 60px 0;">
             <div class="scroll-wrapper">
-              <img src="image/gallery/hanwa_img.png" alt="Hanwa" class="scroll-img" style="height: clamp(580px, 75vh, 950px);" />
+              <img src="image/gallery/hanwa_img.webp" alt="Hanwa" class="scroll-img"
+                style="height: clamp(580px, 75vh, 950px);" />
             </div>
           </div>
 
@@ -383,7 +378,7 @@
           <!-- Horizontal Scroll Section: Bao Hiem Cung De Thuong Gallery -->
           <div class="horizontal-scroll-container" style="padding: 0 0 60px 0;">
             <div class="scroll-wrapper">
-              <img src="image/gallery/img_bao_hiem_cung_de_thuong.svg" alt="Bao Hiem Cung De Thuong Gallery"
+              <img src="image/gallery/img_bao_hiem_cung_de_thuong.webp" alt="Bao Hiem Cung De Thuong Gallery"
                 class="scroll-img" style="height: clamp(580px, 75vh, 950px);" />
             </div>
           </div>
@@ -413,7 +408,8 @@
           <!-- Horizontal Scroll Section: Loi Nhan Nhu Gallery -->
           <div class="horizontal-scroll-container" style="padding: 0 0 60px 0;">
             <div class="scroll-wrapper">
-              <img src="image/gallery/loi_nhan_nhu.png" alt="Loi Nhan Nhu Gallery" class="scroll-img" style="height: clamp(580px, 75vh, 950px);" />
+              <img src="image/gallery/loi_nhan_nhu.webp" alt="Loi Nhan Nhu Gallery" class="scroll-img"
+                style="height: clamp(580px, 75vh, 950px);" />
             </div>
           </div>
 

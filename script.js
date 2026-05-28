@@ -248,7 +248,7 @@
       'image/avt_chipheothino6.png',
       'image/avt_chipheothino7.png',
       'image/avt_chipheothino8.png',
-      'image/avt_chipheothino9.png',
+      'image/avt_chipheothino9.svg',
       'image/avt_chipheothino10.png',
       'image/avt_chipheothino11.png'
     ];
