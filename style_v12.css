@@ -762,7 +762,17 @@ body {
   }
 
   .menu-column {
-    display: contents;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(12px, 3.5vh, 28px);
+  }
+
+  .menu-column--left,
+  .menu-column--right {
+    align-items: center;
+    height: auto;
+    width: auto;
   }
 
   .page-menu {
@@ -780,31 +790,20 @@ body {
 
   /* Menu grid → 2 straight vertical columns on tablet/mobile */
   .menu-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(3, auto);
-    column-gap: clamp(50px, 15vw, 120px);
-    row-gap: clamp(8px, 1.8vh, 20px);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     padding: 0 clamp(14px, 5vw, 60px);
     width: 100%;
     max-width: 500px;
     margin: clamp(10px, 3vh, 50px) auto 0;
     flex: 1;
-    align-content: start;
     z-index: 10;
   }
 
-  #menu-work {
-    grid-column: 1 !important;
-    grid-row: 1 !important;
-    justify-self: center !important;
-    left: auto !important;
-  }
-
-  #menu-resume {
-    grid-column: 1 !important;
-    grid-row: 2 !important;
-    justify-self: center !important;
-    left: auto !important;
+  .menu-item {
+    left: 0 !important;
+    margin: 0 !important;
   }
 
   #menu-resume .menu-icon {
@@ -816,29 +815,8 @@ body {
     width: clamp(58px, 18vw, 92px);
   }
 
-  #menu-about {
-    grid-column: 1 !important;
-    grid-row: 3 !important;
-    justify-self: center !important;
-    left: auto !important;
-  }
-
-  #menu-chipheo {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
-    justify-self: center !important;
-    left: auto !important;
-  }
-
   #menu-chipheo .menu-icon {
     width: clamp(82px, 29vw, 132px);
-  }
-
-  #menu-gallery {
-    grid-column: 2 !important;
-    grid-row: 2 !important;
-    justify-self: center !important;
-    left: auto !important;
   }
 
   #menu-gallery .menu-icon {
@@ -847,7 +825,7 @@ body {
 
   .menu-item--left,
   .menu-item--right {
-    justify-self: center;
+    align-self: center;
   }
 
   .couple-wrapper {
@@ -931,14 +909,14 @@ body {
 
   /* Menu grid adjustments for smaller mobiles */
   .menu-grid {
-    grid-template-columns: 1fr 1fr;
     padding: 0 12px;
     margin-top: clamp(25px, 6vh, 50px);
-    row-gap: 10px;
-    column-gap: 16px;
     width: 100%;
     max-width: 320px;
-    flex: none;
+  }
+
+  .menu-column {
+    gap: 12px;
   }
 
   .menu-icon {
@@ -956,12 +934,6 @@ body {
 
   #menu-chipheo .menu-icon {
     width: clamp(82px, 31vw, 130px);
-  }
-
-  #menu-work,
-  #menu-resume,
-  #menu-about {
-    margin-top: -25px !important;
   }
 
   .couple-wrapper {
