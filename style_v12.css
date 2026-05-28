@@ -2243,20 +2243,11 @@ button:focus-visible {
    SCROLL REVEAL EFFECTS
    ============================================= */
 .scroll-reveal {
-  opacity: 0;
-  transform: translate3d(0, 30px, 0);
-  transition: opacity 0.55s cubic-bezier(0.25, 1, 0.5, 1), transform 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+  opacity: 1;
+  transform: none;
 }
 
 .scroll-reveal.active {
   opacity: 1;
-  transform: translate3d(0, 0, 0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .scroll-reveal {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
+  transform: none;
 }
