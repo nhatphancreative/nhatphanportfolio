@@ -770,7 +770,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding-top: clamp(80px, 11vh, 130px);
+    padding-top: clamp(45px, 8vh, 85px);
     padding-bottom: 20px;
     height: 100%;
     min-height: 100%;
@@ -783,12 +783,12 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, auto);
-    row-gap: clamp(16px, 3vh, 28px);
+    row-gap: clamp(12px, 2.5vh, 22px);
     column-gap: clamp(40px, 10vw, 80px);
     padding: 0 clamp(14px, 5vw, 60px);
     width: 100%;
     max-width: 440px;
-    margin: clamp(10px, 3vh, 50px) auto 0;
+    margin: clamp(5px, 1.5vh, 18px) auto 0;
     flex: 1;
     align-items: center;
     justify-items: center;
@@ -917,16 +917,16 @@ body {
   }
 
   .page-menu {
-    padding-top: clamp(60px, 9vh, 85px);
+    padding-top: clamp(35px, 5.5vh, 50px);
   }
 
   /* Menu grid adjustments for smaller mobiles */
   .menu-grid {
     padding: 0 12px;
-    margin-top: clamp(20px, 4.5vh, 45px);
+    margin-top: clamp(5px, 1.2vh, 12px);
     width: 100%;
     max-width: 320px;
-    row-gap: clamp(14px, 2.5vh, 22px);
+    row-gap: clamp(10px, 1.8vh, 16px);
     column-gap: 24px;
   }
 
