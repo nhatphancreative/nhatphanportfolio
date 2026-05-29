@@ -206,18 +206,18 @@
   const coupleImg = document.querySelector('.couple-wrapper .couple-img');
   if (coupleImg) {
     const coupleFrames = [
-      'image/couple_center.png',
+      'image/couple_center.svg',
       'image/couple_center1.svg',
-      'image/couple_center2.png',
-      'image/couple_center3.png',
-      'image/couple_center4.png',
-      'image/couple_center5.png',
-      'image/couple_center6.png',
-      'image/couple_center7.png',
-      'image/couple_center8.png',
-      'image/couple_center9.png',
-      'image/couple_center10.png',
-      'image/couple_center11.png'
+      'image/couple_center2.svg',
+      'image/couple_center3.svg',
+      'image/couple_center4.svg',
+      'image/couple_center5.svg',
+      'image/couple_center6.svg',
+      'image/couple_center7.svg',
+      'image/couple_center8.svg',
+      'image/couple_center9.svg',
+      'image/couple_center10.svg',
+      'image/couple_center11.svg'
     ];
     let currentFrame = 0;
 
@@ -239,18 +239,18 @@
   const polaroidImg = document.querySelector('.polaroid-card-img');
   if (polaroidImg) {
     const chipheoFrames = [
-      'image/avt_chipheothino.png',
+      'image/avt_chipheothino.svg',
       'image/avt_chipheothino1.svg',
-      'image/avt_chipheothino2.png',
-      'image/avt_chipheothino3.png',
-      'image/avt_chipheothino4.png',
-      'image/avt_chipheothino5.png',
-      'image/avt_chipheothino6.png',
-      'image/avt_chipheothino7.png',
-      'image/avt_chipheothino8.png',
+      'image/avt_chipheothino2.svg',
+      'image/avt_chipheothino3.svg',
+      'image/avt_chipheothino4.svg',
+      'image/avt_chipheothino5.svg',
+      'image/avt_chipheothino6.svg',
+      'image/avt_chipheothino7.svg',
+      'image/avt_chipheothino8.svg',
       'image/avt_chipheothino9.svg',
-      'image/avt_chipheothino10.png',
-      'image/avt_chipheothino11.png'
+      'image/avt_chipheothino10.svg',
+      'image/avt_chipheothino11.svg'
     ];
     let currentChiPheoFrame = 0;
 

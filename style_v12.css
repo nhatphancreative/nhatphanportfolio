@@ -1511,6 +1511,37 @@ button:focus-visible {
   text-shadow: 0 6px 12px rgba(0, 0, 0, 0.45);
 }
 
+@media (max-width: 768px) {
+  .work-footer-deco {
+    height: clamp(200px, 45vw, 320px);
+  }
+
+  .footer-deco-img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .notinthemood-container {
+    margin-bottom: clamp(6px, 1.5vw, 12px);
+  }
+
+  .notinthemood-img {
+    width: clamp(150px, 30vw, 220px);
+  }
+
+  .notinthemood-text-img {
+    width: clamp(100px, 20vw, 145px);
+    margin-top: clamp(-10px, -1.8vw, -6px);
+  }
+
+  .enter-gallery-text {
+    font-size: clamp(15px, 2.8vw, 22px);
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+  }
+}
+
 /* =============================================
    CHÍ PHÈO & THỊ NỞ STORY PAGE
    ============================================= */
