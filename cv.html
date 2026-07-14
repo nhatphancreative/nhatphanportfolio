@@ -17,11 +17,55 @@
 
   <!-- ==================== CV CONTENT AREA ==================== -->
   <main class="cv-content">
-    <div class="cv-container">
-      <img src="image/resume.svg" alt="Curriculum Vitae" class="cv-img" />
+    <div class="cv-container" style="max-width: 1000px;">
+      <!-- PDF Canvas Renderer -->
+      <canvas id="pdf-canvas" style="width: 100%; height: auto; display: block; background-color: #ffffff;"></canvas>
+      
+      <!-- Fallback container (shown if PDFjs fails) -->
+      <div id="pdf-fallback" style="display: none; padding: 40px; text-align: center; font-family: var(--font-body);">
+        <p style="margin-bottom: 20px; color: var(--ink);">Your browser does not support viewing PDFs directly.</p>
+        <a href="CV_PhanVuNhat_Marketing.pdf" download style="color: #271D7A; font-weight: bold; text-decoration: underline;">Click here to download and view the PDF.</a>
+      </div>
     </div>
   </main>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+  <script>
+    if (typeof pdfjsLib !== 'undefined') {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+
+      const url = 'CV_PhanVuNhat_Marketing.pdf';
+      pdfjsLib.getDocument(url).promise.then(pdf => {
+        return pdf.getPage(1);
+      }).then(page => {
+        const canvas = document.getElementById('pdf-canvas');
+        const context = canvas.getContext('2d');
+
+        // Scale to 2x for sharp rendering on high DPI screens
+        const scale = 2.0;
+        const viewport = page.getViewport({ scale: scale });
+
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+
+        const renderContext = {
+          canvasContext: context,
+          viewport: viewport
+        };
+        return page.render(renderContext).promise;
+      }).catch(err => {
+        console.error('Error rendering PDF:', err);
+        showFallback();
+      });
+    } else {
+      showFallback();
+    }
+
+    function showFallback() {
+      document.getElementById('pdf-canvas').style.display = 'none';
+      document.getElementById('pdf-fallback').style.display = 'block';
+    }
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
