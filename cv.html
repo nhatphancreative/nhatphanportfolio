@@ -24,7 +24,7 @@
       <!-- Fallback container (shown if PDFjs fails) -->
       <div id="pdf-fallback" style="display: none; padding: 40px; text-align: center; font-family: var(--font-body);">
         <p style="margin-bottom: 20px; color: var(--ink);">Your browser does not support viewing PDFs directly.</p>
-        <a href="CV_PhanVuNhat_Marketing.pdf" download style="color: #271D7A; font-weight: bold; text-decoration: underline;">Click here to download and view the PDF.</a>
+        <a href="CV_VuNhat_Marketing.pdf" download style="color: #271D7A; font-weight: bold; text-decoration: underline;">Click here to download and view the PDF.</a>
       </div>
     </div>
   </main>
@@ -34,7 +34,7 @@
     if (typeof pdfjsLib !== 'undefined') {
       pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
 
-      const url = 'CV_PhanVuNhat_Marketing.pdf';
+      const url = 'CV_VuNhat_Marketing.pdf';
       pdfjsLib.getDocument(url).promise.then(pdf => {
         return pdf.getPage(1);
       }).then(page => {
